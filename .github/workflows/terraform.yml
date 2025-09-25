@@ -24,6 +24,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{secrets.AWS_SESSION-TOKEN }}
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Terraform Init
@@ -32,7 +33,7 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -out=tfplan
 
-        
+
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve tfplan
