@@ -21,8 +21,3 @@ variable "vpc_cidr" {
   type        = string
   default     = "192.168.0.0/16"
 }
-
-variable "ami_id" {
-  description = "AMI ID for the EC2 instance"
-  type        = string
-}
